@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import Navigation from './Navigation/Navigation';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './Home/Home';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path='/' render={() => <h1>Main Page</h1>} />
+            <Route exact path='/' component={Home} />
             <Route exact path='/single-user' render={() => <h1>Single User</h1>} />
             <Route exact path='/multiple-users' render={() => <h1>Multiple Users</h1>} />
             <Route exact path='/about' render={() => <h1>About</h1>} />
