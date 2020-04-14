@@ -1,10 +1,14 @@
 import React from 'react';
 import './index.css';
+import Navigation from './Navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <h1>Github Finder 2</h1>
+
+      <Navigation />
+
+
     </div>
   );
 }
