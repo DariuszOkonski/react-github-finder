@@ -1,15 +1,17 @@
 import React from 'react';
 import './index.css';
 import Navigation from './Navigation/Navigation';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <div className="App">
+        <Navigation />
 
-      <Navigation />
 
-
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
