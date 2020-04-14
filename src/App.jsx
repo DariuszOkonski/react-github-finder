@@ -3,6 +3,7 @@ import './index.css';
 import Navigation from './Navigation/Navigation';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home/Home';
+import About from './About/About';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/single-user' render={() => <h1>Single User</h1>} />
             <Route exact path='/multiple-users' render={() => <h1>Multiple Users</h1>} />
-            <Route exact path='/about' render={() => <h1>About</h1>} />
+            <Route exact path='/about' component={About} />
             <Route render={() => <h1>ERROR</h1>} />
           </Switch>
 
