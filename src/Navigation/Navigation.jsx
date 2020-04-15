@@ -6,7 +6,7 @@ const Navigation = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
-          <i class="fab fa-github-square mr-1"></i>Github Finder
+          <i className="fab fa-github-square mr-1"></i>Github Finder
         </NavLink>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
