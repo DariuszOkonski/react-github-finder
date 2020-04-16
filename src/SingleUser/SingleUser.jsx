@@ -3,9 +3,11 @@ import UserHeader from './UserHeader';
 import Loading from '../Loading/Loading';
 import UserInfo from './UserInfo';
 import UserRepos from './UserRepos';
+import UserAlert from './UserAlert';
 
 class SingleUser extends Component {
   state = {
+    loaded: false,
     loading: false,
     user: {
       login: "bradtraversy",
@@ -333,21 +335,30 @@ class SingleUser extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <UserHeader />
-        {
-          this.state.loading ? (
-            <Loading />
-          ) : (
-              <div>
-                <UserInfo {...this.state.user} />
-                <UserRepos repos={this.state.repos} />
-              </div>
-            )
-        }
-      </div>
-    );
+    if (this.state.loaded) {
+      return (
+        <div>
+          <UserHeader />
+          {
+            this.state.loading ? (
+              <Loading />
+            ) : (
+                <div>
+                  <UserInfo {...this.state.user} />
+                  <UserRepos repos={this.state.repos} />
+                </div>
+              )
+          }
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <UserHeader />
+          <UserAlert />
+        </div>
+      )
+    }
   }
 }
 
