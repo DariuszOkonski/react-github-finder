@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const UserHeader = () => {
+const UserHeader = ({ handleUserName }) => {
+  const [userName, setUserName] = useState('');
+
+  const onChange = (e) => {
+    setUserName(e.target.value);
+    handleUserName(e.target.value);
+  }
+
   return (
     <div className="card">
       <h5 className="card-header">Search Single Github User</h5>
@@ -14,6 +21,8 @@ const UserHeader = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter username..."
+              value={userName}
+              onChange={(e) => onChange(e)}
             />
           </div>
         </form>
