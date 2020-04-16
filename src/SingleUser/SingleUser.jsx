@@ -7,6 +7,7 @@ import UserAlert from './UserAlert';
 
 class SingleUser extends Component {
   state = {
+
     loaded: false,
     loading: false,
     user: {
@@ -334,11 +335,15 @@ class SingleUser extends Component {
     ]
   }
 
+  handleUserName = (userName) => {
+    console.log('SingleUser: ', userName);
+  }
+
   render() {
     if (this.state.loaded) {
       return (
         <div>
-          <UserHeader />
+          <UserHeader handleUserName={this.handleUserName} />
           {
             this.state.loading ? (
               <Loading />
@@ -354,7 +359,7 @@ class SingleUser extends Component {
     } else {
       return (
         <div>
-          <UserHeader />
+          <UserHeader handleUserName={this.handleUserName} />
           <UserAlert />
         </div>
       )
