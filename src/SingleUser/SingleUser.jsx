@@ -342,7 +342,7 @@ class SingleUser extends Component {
           ) : (
               <div>
                 <UserInfo {...this.state.user} />
-                <UserRepos {...this.state.repos} />
+                <UserRepos repos={this.state.repos} />
               </div>
             )
         }
