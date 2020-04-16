@@ -25,27 +25,27 @@ const UserInfo = (props) => {
 
           <div className="card mt-2">
             <div className="card-body">
-              Name: {name}
+              <strong>Name:</strong> {name}
             </div>
           </div>
           <div className="card mt-2">
             <div className="card-body">
-              Email: {email}
+              <strong>Email:</strong> {email}
             </div>
           </div>
           <div className="card mt-2">
             <div className="card-body">
-              Company: {company}
+              <strong>Company:</strong> {company}
             </div>
           </div>
           <div className="card mt-2">
             <div className="card-body">
-              Location: {location}
+              <strong>Location:</strong> {location}
             </div>
           </div>
           <div className="card mt-2">
             <div className="card-body">
-              Bio: {bio}
+              <strong>Bio:</strong> {bio}
             </div>
           </div>
         </div>
