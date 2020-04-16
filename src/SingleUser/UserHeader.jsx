@@ -8,7 +8,13 @@ const UserHeader = () => {
         <p className="card-text">Enter a username to fetch a user profile and repos</p>
         <form>
           <div className="form-group">
-            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter username..."
+            />
           </div>
         </form>
       </div>
