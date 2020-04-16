@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import UserHeader from './UserHeader';
 import Loading from '../Loading/Loading';
 import UserInfo from './UserInfo';
@@ -7,7 +7,7 @@ import UserAlert from './UserAlert';
 
 class SingleUser extends Component {
   state = {
-
+    username: '',
     loaded: false,
     loading: false,
     user: {
@@ -335,35 +335,55 @@ class SingleUser extends Component {
     ]
   }
 
-  handleUserName = (userName) => {
-    console.log('SingleUser: ', userName);
+  handleUserName = (username) => {
+    console.log('SingleUser: ', username);
+
+    this.setState({
+      username
+    })
+  }
+
+  componentDidUpdate() {
+    this.checkLoaded();
+  }
+
+  checkLoaded = () => {
+    if (this.state.username === '' && this.state.loaded) {
+      this.setState({
+        loaded: false
+      })
+    } else if (this.state.username !== '' && !this.state.loaded) {
+      this.setState({
+        loaded: true
+      })
+    }
   }
 
   render() {
-    if (this.state.loaded) {
-      return (
-        <div>
-          <UserHeader handleUserName={this.handleUserName} />
-          {
-            this.state.loading ? (
-              <Loading />
-            ) : (
-                <div>
-                  <UserInfo {...this.state.user} />
-                  <UserRepos repos={this.state.repos} />
-                </div>
-              )
-          }
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <UserHeader handleUserName={this.handleUserName} />
-          <UserAlert />
-        </div>
-      )
-    }
+    return (
+      <div>
+        <UserHeader handleUserName={this.handleUserName} />
+
+        {
+          this.state.loaded ?
+            <Fragment>
+              {
+                this.state.loading ? (
+                  <Loading />
+                ) : (
+                    <div>
+                      <UserInfo {...this.state.user} />
+                      <UserRepos repos={this.state.repos} />
+                    </div>
+                  )
+              }
+            </Fragment>
+            :
+            <UserAlert />
+        }
+      </div>
+
+    )
   }
 }
 
