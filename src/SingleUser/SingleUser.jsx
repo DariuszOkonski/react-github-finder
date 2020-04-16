@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import UserHeader from './UserHeader';
 import Loading from '../Loading/Loading';
 import UserInfo from './UserInfo';
+import UserRepos from './UserRepos';
 
 class SingleUser extends Component {
   state = {
@@ -341,6 +342,7 @@ class SingleUser extends Component {
           ) : (
               <div>
                 <UserInfo {...this.state.user} />
+                <UserRepos {...this.state.repos} />
               </div>
             )
         }
